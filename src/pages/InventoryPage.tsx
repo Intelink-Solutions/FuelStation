@@ -28,15 +28,15 @@ export default function InventoryPage() {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <p className="text-sm text-muted-foreground">{products.length} products · {products.filter(p => p.low).length} low stock</p>
-        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setModalOpen(true)} className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setModalOpen(true)} className="flex items-center justify-center gap-2 px-4 py-2 accent-gradient text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity shadow-md shadow-primary/30 sm:w-auto w-full">
           <Plus className="w-4 h-4" /> Add Product
         </motion.button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
         {products.map((p, i) => (
           <motion.div
             key={p.id}
@@ -45,14 +45,14 @@ export default function InventoryPage() {
             transition={{ delay: i * 0.05 }}
             className="kpi-card"
           >
-            <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-3">
+            <div className="w-11 h-11 rounded-xl bg-secondary/70 flex items-center justify-center mb-3 border border-border/60">
               <Package className="w-6 h-6 text-muted-foreground" />
             </div>
             <h4 className="font-semibold text-sm">{p.name}</h4>
             <p className="text-xs text-muted-foreground mb-3">{p.category}</p>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               <span className="text-sm font-bold">{p.price}</span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap justify-end">
                 <span className="text-xs text-muted-foreground">Qty: {p.stock}</span>
                 {p.low && <span className="status-badge status-inactive">Low</span>}
               </div>

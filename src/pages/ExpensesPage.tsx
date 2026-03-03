@@ -21,9 +21,9 @@ const columns = [
   { key: "amount", label: "Amount", render: (v: string) => <span className="font-semibold">{v}</span> },
   { key: "approvedBy", label: "Approved By" },
   { key: "id", label: "Actions", render: () => (
-    <div className="flex gap-1">
-      <button className="p-1.5 rounded-lg hover:bg-secondary transition-colors"><Edit className="w-4 h-4 text-muted-foreground" /></button>
-      <button className="p-1.5 rounded-lg hover:bg-secondary transition-colors"><Trash2 className="w-4 h-4 text-destructive" /></button>
+    <div className="flex gap-1 justify-end">
+      <button className="p-2 rounded-lg hover:bg-secondary transition-colors"><Edit className="w-4 h-4 text-muted-foreground" /></button>
+      <button className="p-2 rounded-lg hover:bg-secondary transition-colors"><Trash2 className="w-4 h-4 text-destructive" /></button>
     </div>
   )},
 ];
@@ -33,10 +33,10 @@ export default function ExpensesPage() {
   const [form, setForm] = useState({ category: "", description: "", amount: "" });
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-5">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <p className="text-sm text-muted-foreground">{expensesData.length} expense records</p>
-        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setModalOpen(true)} className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setModalOpen(true)} className="flex items-center justify-center gap-2 px-4 py-2 accent-gradient text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity shadow-md shadow-primary/30 sm:w-auto w-full">
           <Plus className="w-4 h-4" /> Add Expense
         </motion.button>
       </div>

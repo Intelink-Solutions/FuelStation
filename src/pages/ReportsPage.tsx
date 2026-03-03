@@ -27,8 +27,8 @@ export default function ReportsPage() {
   const [filters, setFilters] = useState({ from: "", to: "", fuel: "", shift: "", method: "" });
 
   return (
-    <div className="space-y-5">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-card rounded-xl p-5 card-shadow">
+    <div className="space-y-4 sm:space-y-5">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-card rounded-xl p-4 sm:p-5 card-shadow border border-border/70">
         <div className="flex items-center gap-2 mb-4">
           <Filter className="w-4 h-4 text-muted-foreground" />
           <h3 className="text-sm font-semibold">Filters</h3>
@@ -42,14 +42,14 @@ export default function ReportsPage() {
         </div>
       </motion.div>
 
-      <div className="flex gap-2">
-        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => toast.success("PDF exported")} className="flex items-center gap-2 px-4 py-2 bg-destructive text-destructive-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+      <div className="flex flex-col sm:flex-row gap-2">
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => toast.success("PDF exported")} className="flex items-center justify-center gap-2 px-4 py-2 bg-destructive text-destructive-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity sm:w-auto w-full">
           <FileText className="w-4 h-4" /> Export PDF
         </motion.button>
-        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => toast.success("Excel exported")} className="flex items-center gap-2 px-4 py-2 bg-success text-success-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => toast.success("Excel exported")} className="flex items-center justify-center gap-2 px-4 py-2 bg-success text-success-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity sm:w-auto w-full">
           <Download className="w-4 h-4" /> Export Excel
         </motion.button>
-        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => window.print()} className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-medium hover:bg-secondary transition-colors">
+        <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => window.print()} className="flex items-center justify-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-medium hover:bg-secondary transition-colors sm:w-auto w-full">
           <Printer className="w-4 h-4" /> Print
         </motion.button>
       </div>
